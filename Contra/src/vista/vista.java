@@ -1,13 +1,16 @@
 package vista;
 
 import javax.swing.JFrame;
+
+import controlador.Controlador;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
-public class vista extends JFrame implements Runnable {
+public class Vista extends JFrame implements Runnable {
 
     public static final int WIDTH = 800, HEIGHT = 600;
     private Canvas canvas;
@@ -22,7 +25,10 @@ public class vista extends JFrame implements Runnable {
     private double delta = 0;
     private int AVERAGEFPS = FPS;
 
-    public vista() {
+    private Controlador con;
+
+    public Vista(Controlador c) {
+        con = c;
         initcomponets();
         setVisible(true);
         start();
@@ -46,6 +52,9 @@ public class vista extends JFrame implements Runnable {
     
     }
     
+    public void init(){
+        
+    }
 
     @Override
     public void run() {
@@ -76,13 +85,12 @@ public class vista extends JFrame implements Runnable {
         stop();
     }
 
-    int x = 0;
-
     private void update() {
-        x++;
+        //gameState.update();
     }
 
     private void draw() {
+        
         bs = canvas.getBufferStrategy();
 
         if (bs == null) {
@@ -93,11 +101,12 @@ public class vista extends JFrame implements Runnable {
         g = bs.getDrawGraphics();
 
         // -----------------------
-
-        g.clearRect(0, 0, WIDTH, HEIGHT);
-
         g.setColor(Color.BLACK);
 
+        g.fillRect(0, 0, WIDTH, HEIGHT);
+    
+        con.gameState.draw(g);
+        
         g.drawString("" + AVERAGEFPS, 10, 20);
 
         // ---------------------
@@ -119,4 +128,6 @@ public class vista extends JFrame implements Runnable {
             e.printStackTrace();
         }
     }
+
+    
 }
