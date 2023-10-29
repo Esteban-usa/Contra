@@ -10,6 +10,7 @@ public class Controlador {
     private Vista v;
 
     public GameState gameState;
+    public KeyBoard keyboard;
 
     public Controlador(Logica l) {
         this.l = l;
@@ -19,6 +20,7 @@ public class Controlador {
 
     public void init() {
         gameState = new GameState();
+        keyboard = new KeyBoard();
     }
 
     public Logica getL() {
