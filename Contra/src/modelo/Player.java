@@ -48,9 +48,9 @@ public class Player extends MovingObject {
 
         at = AffineTransform.getTranslateInstance(position.getX(), position.getY());
 
-        at.rotate(angle,Bufferimage.imageLoader("D:\\Universidad\\semestre 6\\Patrones\\Contra\\Contra\\src\\img\\personaje.png").getWidth()/2,Bufferimage.imageLoader("D:\\Universidad\\semestre 6\\Patrones\\Contra\\Contra\\src\\img\\personaje.png").getHeight()/2);
+        at.rotate(angle,Bufferimage.imageLoader("D:\\Programacion\\universidad\\semestre 6\\patrones\\Contra\\src\\img\\personaje.png").getWidth()/2,Bufferimage.imageLoader("D:\\Programacion\\universidad\\semestre 6\\patrones\\Contra\\src\\img\\personaje.png").getHeight()/2);
 
-        g2d.drawImage(Bufferimage.imageLoader("D:\\Universidad\\semestre 6\\Patrones\\Contra\\Contra\\src\\img\\personaje.png"), at,null);
+        g2d.drawImage(Bufferimage.imageLoader("D:\\Programacion\\universidad\\semestre 6\\patrones\\Contra\\src\\img\\personaje.png"), at,null);
     }
 
 }
